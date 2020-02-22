@@ -88,38 +88,37 @@ export class App extends React.Component {
   };
 
   render() {
-    // console.log(this.state.listTasks);
-
     return (
       <div>
         <div className="app">
+          <h1>Mate Hackaton</h1>
           <div className="calendar">
-            <h1>Mate Hackaton</h1>
-            <div className="navigation">
-              <ButtonNextPrev
+            <div className="calendar__main">
+              <div className="navigation">
+                <ButtonNextPrev
+                  initialDate={this.state.initialDate}
+                  updateCurrentDate={this.updateCurrentDate}
+                  showTasks={this.showTasks}
+                />
+                <ViewButtons />
+              </div>
+              <Month
+                listTasks={this.state.listTasks}
+                updateInitialDate={this.updateInitialDate}
                 initialDate={this.state.initialDate}
-                updateCurrentDate={this.updateCurrentDate}
                 showTasks={this.showTasks}
+                currentDay={this.state.currentDay}
               />
-              <ViewButtons />
             </div>
-
-            <Month
-              listTasks={this.state.listTasks}
-              updateInitialDate={this.updateInitialDate}
-              initialDate={this.state.initialDate}
-              showTasks={this.showTasks}
-              currentDay={this.state.currentDay}
-            />
-          </div>
-          <div className="calendar__task-list task-list">
-            <ListTasks
-              listTasks={this.state.listTasks}
-              // currentTask={this.state.currentTask}
-              initialDate={this.state.initialDate}
-              currentDay={this.state.currentDay}
-              addTasksInList={this.addTasksInList}
-            />
+            <div className="calendar__task-list task-list">
+              <ListTasks
+                listTasks={this.state.listTasks}
+                // currentTask={this.state.currentTask}
+                initialDate={this.state.initialDate}
+                currentDay={this.state.currentDay}
+                addTasksInList={this.addTasksInList}
+              />
+            </div>
           </div>
         </div>
       </div>

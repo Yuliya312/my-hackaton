@@ -1,29 +1,79 @@
-.app {
+// @font-face {
+//   font-family: "Open Sans";
+//   src: url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&display=swap&subset=cyrillic,cyrillic-ext');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&display=swap&subset=cyrillic,cyrillic-ext');
+
+body,
+button {
+  font-family: "Open Sans";
+}
+
+button {
+  font-family: "Open Sans";
+  font-size: 1.2rem;
+  border-radius: 3px;
+  border: 1px solid #d9d9d9;
+}
+
+.calendar {
   display: flex;
 
   text-align: center;
   margin-top: 100px;
   font-size: 40px;
-}
 
-.calendar {
-  max-width: 500px;
-  background-color: #fff;
-  padding: 10px;
-  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+  &__main {
+    // max-width: 500px;
+    width: 60%;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+      0 1px 3px 0 rgba(63, 63, 68, 0.15);
+  }
+
+  &__task-list {
+    width: 40%;
+    box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
     0 1px 3px 0 rgba(63, 63, 68, 0.15);
+  }
 
-    &__title{
-      font-size: 1.2rem;
-      color: #4f4f4f;
-    }
+  &__title{
+    font-size: 1.2rem;
+    color: #4f4f4f;
+  }
 
-    &__task-list {
-      max-width: 400px;
-    }
+  &__task-list {
+    max-width: 400px;
+    padding: 20px;
+  }
 }
 
 .navigation {
   display: flex;
   justify-content: space-between;
+
+  &__view-btn:hover,
+  &__btn:hover {
+    background: rgba(#566bf3, 0.8);
+    border: 1px solid #5c6ac4;
+    color: #fff;
+  }
+
+  &__view-btn:focus,
+  &__btn:focus {
+    background: #5c6ac4;
+    border: 1px solid #5c6ac4;
+    color: #fff;
+  }
+}
+
+.tasks-list {
+  max-width: 400px;
+  font-size: 1.2rem;
+  text-align: left;
 }

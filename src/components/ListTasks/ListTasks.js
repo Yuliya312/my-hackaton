@@ -8,6 +8,8 @@ export class ListTasks extends React.Component {
   };
 
   addTask = (task) => {
+    // console.log(task);
+
     const newTask = {
       ...task,
     };
@@ -16,6 +18,7 @@ export class ListTasks extends React.Component {
       tasks: [...prevState.tasks, newTask],
     }));
   };
+  // console.log(state);
 
   render() {
     const { listTasks } = this.props;
@@ -23,7 +26,6 @@ export class ListTasks extends React.Component {
     const month = this.props.currentDay.toDateString().split(' ')[1];
     const day = this.props.currentDay.getDate();
 
-    console.log(listTasks[year][month][day])
     return (
       <>
         <NewTask
@@ -33,7 +35,7 @@ export class ListTasks extends React.Component {
           currentDay={this.props.currentDay}
           addTasksInList={this.props.addTasksInList}
         />
-        <div>
+        <div className="tasks-list">
           {
             listTasks[year][month][day]
               ? listTasks[year][month][day].map(item => (

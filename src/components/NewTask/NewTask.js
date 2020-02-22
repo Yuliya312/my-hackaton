@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './NewTask.scss';
 
 export class NewTask extends Component {
   state = {
@@ -19,7 +20,6 @@ export class NewTask extends Component {
         value: value,
       });
     }
-
   };
 
   handleSubmit = (event) => {
@@ -29,6 +29,7 @@ export class NewTask extends Component {
     const day = this.props.currentDay.getDate();
 
     let newTask = this.props.listTasks[year][month][day];
+
     if (newTask) {
       newTask.push({
         name: this.state.name,
@@ -41,12 +42,13 @@ export class NewTask extends Component {
         value: this.state.value,
       });
     }
+
     this.props.addTasksInList(year, month, day, newTask);
 
-     this.setState({
-       name: '',
-       value: '',
-     })
+    this.setState({
+      name: '',
+      value: '',
+    });
   };
 
   render() {

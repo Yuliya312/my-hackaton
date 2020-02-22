@@ -25,8 +25,20 @@ export class ButtonNextPrev extends React.Component {
   render() {
     return (
       <div className="navigation__next-prev">
-        <button type="button" onClick={this.goPrev}>Prev</button>
-        <button type="button" onClick={this.goNext}>Next</button>
+        <button
+          className="navigation__btn"
+          type="button"
+          onClick={this.goPrev}
+        >
+          Prev
+        </button>
+        <button
+          className="navigation__btn"
+          type="button"
+          onClick={this.goNext}
+        >
+          Next
+        </button>
       </div>
     );
   }

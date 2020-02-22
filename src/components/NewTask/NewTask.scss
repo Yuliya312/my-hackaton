@@ -1,0 +1,21 @@
+.form {
+  flex: 1 0 0%;
+  padding: 0.8rem;
+  background: transparent;
+  font-size: 1.2rem;
+  color: #637381;
+  text-align: center;
+  font-family: "Open Sans";
+
+  &__btn:hover {
+    background: rgba(#566bf3, 0.8);
+    border: 1px solid #5c6ac4;
+    color: #fff;
+  }
+
+  &__btn:focus {
+    background: #5c6ac4;
+    border: 1px solid #5c6ac4;
+    color: #fff;
+  }
+}
