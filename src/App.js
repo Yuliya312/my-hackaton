@@ -2,70 +2,75 @@ import React from 'react';
 import './App.scss';
 import { Month } from './components/month/Month';
 import { ButtonNextPrev } from './components/button/Button';
+import { ListTasks } from './components/ListTasks/ListTasks';
 
 const initialTasks = {
   2020: {
 
-    jan: {
+    Jan: {
       1: [
         {
-          name: 'name of task jan-2020-1',
-          value: 'value of task jan-2020-1',
+          name: 'name of task Jan-2020-1',
+          value: 'value of task Jan-2020-1',
         },
       ],
       5: [
         {
-          name: 'name of task jan-2020-2',
-          value: 'value of task jan-2020-2',
+          name: 'name of task Jan-2020-2',
+          value: 'value of task Jan-2020-2',
         },
       ],
     },
 
-    feb: {
+    Feb: {
       1: [
         {
-          name: 'name of task feb-2020-1',
-          value: 'value of task feb-2020-1',
+          name: 'name of task Feb-2020-1',
+          value: 'value of task Feb-2020-1',
+        },
+        {
+          name: 'name of task Feb-2020-1-second',
+          value: 'value of task Feb-2020-1-second',
         },
       ],
       2: [
         {
-          name: 'name of task feb-2020-2',
-          value: 'value of task feb-2020-2',
+          name: 'name of task Feb-2020-2',
+          value: 'value of task Feb-2020-2',
         },
       ],
     },
 
   },
 
-  2018: {
+  2021: {
 
-    jan: {
+    Jan: {
       1: [
         {
-          name: 'name of task jan-2018-1',
-          value: 'value of task jan-2018-1',
+          name: 'name of task Jan-2018-1',
+          value: 'value of task Jan-2018-1',
         },
       ],
       2: [
         {
-          name: 'name of task jan-2018-2',
-          value: 'value of task jan-2018-2',
+          name: 'name of task Jan-2018-2',
+          value: 'value of task Jan-2018-2',
         },
       ],
     },
 
-    feb: {
+    Feb: {
       1: [
         {
-          name: 'name of task feb-2018-1',
-          value: 'value of task feb-2018-1',
+          name: 'name of task Feb-2018-1',
+          value: 'value of task Feb-2018-1',
         },
       ],
       2: [
         {
-          name: 'name of task feb-2018-2',
-          value: 'value of task feb-2018-2',
+          name: 'name of task Feb-2018-2',
+          value: 'value of task Feb-2018-2',
         },
       ],
     },
@@ -77,6 +82,7 @@ export class App extends React.Component {
   state = {
     listTasks: initialTasks,
     initialDate: new Date(),
+    currentTask: null,
   };
 
   updateCurrentDate = (value) => {
@@ -85,18 +91,33 @@ export class App extends React.Component {
     });
   };
 
+  showTasks = (value) => {
+    this.setState({
+      currentTask: value,
+    });
+  };
+
   render() {
     return (
-      <div className="app">
-        <h1>Mate Hackaton</h1>
-        <ButtonNextPrev
-          initialDate={this.state.initialDate}
-          updateCurrentDate={this.updateCurrentDate}
-        />
-        <Month
-          listTasks={this.state.listTasks}
-          initialDate={this.state.initialDate}
-        />
+      <div>
+        <div className="app">
+          <h1>Mate Hackaton</h1>
+          <ButtonNextPrev
+            initialDate={this.state.initialDate}
+            updateCurrentDate={this.updateCurrentDate}
+          />
+          <Month
+            listTasks={this.state.listTasks}
+            initialDate={this.state.initialDate}
+            showTasks={this.showTasks}
+          />
+        </div>
+        <div className="list-tasks-container">
+          <ListTasks
+            initialTasks={this.state.initialTasks}
+            currentTask={this.state.currentTask}
+          />
+        </div>
       </div>
     );
   }
