@@ -22,10 +22,6 @@ export class ListTasks extends React.Component {
 
   render() {
     const { currentTask } = this.props;
-    const { tasks } = this.state;
-    // console.log(tasks);
-    // console.log(this.state);
-    // console.log(this.props);
 
     return (
       <>
@@ -33,7 +29,7 @@ export class ListTasks extends React.Component {
           tasks={this.state.tasks}
           addTasks={this.addTasks}
         />
-        <div>
+        <div className="tasks-list">
           {
             currentTask
               ? this.props.currentTask.map(item => (

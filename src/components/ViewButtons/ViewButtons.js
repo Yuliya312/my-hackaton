@@ -25,9 +25,27 @@ export class ViewButtons extends React.Component {
   render() {
     return (
       <div className="navigation__view-buttons">
-        <button type="button" onClick={this.goPrev}>Year</button>
-        <button type="button" onClick={this.goNext}>Month</button>
-        <button type="button" onClick={this.goNext}>Day</button>
+        <button
+          className="navigation__view-btn"
+          type="button"
+          onClick={this.goPrev}
+        >
+          Year
+        </button>
+        <button
+          className="navigation__view-btn"
+          type="button"
+          onClick={this.goNext}
+        >
+          Month
+        </button>
+        <button
+          className="navigation__view-btn"
+          type="button"
+          onClick={this.goNext}
+        >
+          Day
+        </button>
       </div>
     );
   }

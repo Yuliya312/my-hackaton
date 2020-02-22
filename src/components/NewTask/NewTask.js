@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './NewTask.scss';
 
 export class NewTask extends Component {
   state = {
     // id: 0,
     title: '',
     description: '',
-    inputError: false,
+    // inputError: false,
   };
 
   changeHandler = (event) => {
@@ -14,7 +15,7 @@ export class NewTask extends Component {
 
     this.setState({
       [name]: value,
-      inputError: false,
+      // inputError: false,
     });
     // console.log(this.state);
     // console.log(this.props);
@@ -23,7 +24,7 @@ export class NewTask extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { title, description } = this.state;
-    let error = false;
+    const error = false;
 
     this.setState({
 
@@ -40,7 +41,7 @@ export class NewTask extends Component {
         title,
         description,
       });
-      console.log(this.state);
+      // console.log(this.state);
     }
   }
 
