@@ -3,9 +3,9 @@ import './Month.scss';
 import PropTypes from 'prop-types';
 
 export class Month extends React.PureComponent {
-  generateMonth = (year, month) => {
-    const currentDate = new Date(year, month);
-    const nextDate = new Date(year, month + 1);
+  generateMonth = (date) => {
+    const currentDate = date;
+    const nextDate = new Date(date.getFullYear(), date.getMonth() + 1);
     const startDay = currentDate.getDay() ? currentDate.getDay() : 7; // ?
 
     nextDate.setDate(-0);
@@ -20,10 +20,10 @@ export class Month extends React.PureComponent {
   };
 
   render() {
-    const { listTasks } = this.props;
+    const { initialDate } = this.props;
     // console.log(listTasks[2018])
 
-    const canlendarBasicInform = this.generateMonth(2020, 0);
+    const canlendarBasicInform = this.generateMonth(initialDate);
     const blanks = [];
 
     for (let i = 1; i < canlendarBasicInform.startDay; i += 1) {
@@ -82,13 +82,6 @@ export class Month extends React.PureComponent {
                       return (
                         <td>
                           {tdItem}
-                          { listTasks[2020].jan[tdItem]
-                            ? listTasks[2020].jan[tdItem]
-                              .map(item => (
-                                <div key={item.name}>item.value</div>
-                              ))
-                            : null
-                          }
                         </td>
                       );
                     })
@@ -105,4 +98,5 @@ export class Month extends React.PureComponent {
 
 Month.propTypes = {
   listTasks: PropTypes.shape({}).isRequired,
+  initialDate: PropTypes.shape({}).isRequired,
 };

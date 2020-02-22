@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import { Month } from './components/month/Month';
+import { ButtonNextPrev } from './components/button/Button';
 
 const initialTasks = {
   2020: {
@@ -75,13 +76,27 @@ const initialTasks = {
 export class App extends React.Component {
   state = {
     listTasks: initialTasks,
+    initialDate: new Date(),
+  };
+
+  updateCurrentDate = (value) => {
+    this.setState({
+      initialDate: value,
+    });
   };
 
   render() {
     return (
       <div className="app">
         <h1>Mate Hackaton</h1>
-        <Month listTasks={this.state.listTasks} />
+        <ButtonNextPrev
+          initialDate={this.state.initialDate}
+          updateCurrentDate={this.updateCurrentDate}
+        />
+        <Month
+          listTasks={this.state.listTasks}
+          initialDate={this.state.initialDate}
+        />
       </div>
     );
   }
