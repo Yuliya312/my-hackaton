@@ -3,46 +3,51 @@ import PropTypes from 'prop-types';
 
 export class NewTask extends Component {
   state = {
-    // id: 0,
-    title: '',
-    description: '',
-    inputError: false,
+    name: '',
+    value: '',
   };
 
   changeHandler = (event) => {
     const { name, value } = event.target;
 
-    this.setState({
-      [name]: value,
-      inputError: false,
-    });
-    // console.log(this.state);
-    // console.log(this.props);
-  }
+    if (name === 'title') {
+      this.setState({
+        name: value,
+      });
+    } else if (name === 'description') {
+      this.setState({
+        value: value,
+      });
+    }
+
+  };
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { title, description } = this.state;
-    let error = false;
+    const year = this.props.currentDay.getFullYear();
+    const month = this.props.currentDay.toDateString().split(' ')[1];
+    const day = this.props.currentDay.getDate();
 
-    this.setState({
-
-    });
-
-    if (!error) {
-      this.setState({
-        title: '',
-        description: '',
-
+    let newTask = this.props.listTasks[year][month][day];
+    if (newTask) {
+      newTask.push({
+        name: this.state.name,
+        value: this.state.value,
       });
-
-      this.props.addTask({
-        title,
-        description,
+    } else {
+      newTask = [];
+      newTask.push({
+        name: this.state.name,
+        value: this.state.value,
       });
-      console.log(this.state);
     }
-  }
+    this.props.addTasksInList(year, month, day, newTask);
+
+     this.setState({
+       name: '',
+       value: '',
+     })
+  };
 
   render() {
     return (
@@ -59,8 +64,8 @@ export class NewTask extends Component {
             id="taskTitle"
             className="form__input"
             placeholder="task title"
-            // value={title}
             onChange={this.changeHandler}
+            value={this.state.name}
           />
         </label>
         <label htmlFor="taskDescription">
@@ -73,8 +78,8 @@ export class NewTask extends Component {
             placeholder="task description"
             rows="5"
             cols="30"
-            // value={title}
             onChange={this.changeHandler}
+            value={this.state.value}
           />
         </label>
         <button type="submit" className="form__btn">Add task</button>

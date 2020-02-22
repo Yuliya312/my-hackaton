@@ -19,18 +19,23 @@ export class Month extends React.PureComponent {
     };
   };
 
-  showCurrentTask = (value) => {
-    if (value) {
-      this.props.showTasks(value);
+  showCurrentTask = (tasks, date) => {
+    if (tasks) {
+      this.props.showTasks(tasks);
       // console.log(value[0].name);
     } else {
       this.props.showTasks(null);
     }
+    // this.props.updateInitialDate(currentDate)
+  const currentDate = new Date(this.props.initialDate);
+    currentDate.setDate(date);
+    this.props.updateInitialDate(currentDate)
+    // console.log(currentDate)
   };
 
   render() {
-    const { listTasks, initialDate } = this.props;
-    // console.log(listTasks[2018])
+    const { listTasks, initialDate, currentDay } = this.props;
+    console.log(currentDay)
 
     const canlendarBasicInform = this.generateMonth(initialDate);
     const blanks = [];
@@ -65,13 +70,12 @@ export class Month extends React.PureComponent {
       }
     });
 
-    // console.log(list)
     const year = initialDate.getFullYear();
     const month = initialDate.toDateString().split(' ')[1];
 
     return (
       <div>
-        <h2 className="calendar__title">{initialDate.toLocaleString()}</h2>
+        <h2 className="calendar__title">{currentDay.toLocaleString()}</h2>
         <div>
           <div>
             <div className="WeekdayContainer">
@@ -101,6 +105,7 @@ export class Month extends React.PureComponent {
                                 if (listTasks[year] && listTasks[year][month]) {
                                   this.showCurrentTask(
                                     listTasks[year][month][tdItem],
+                                    tdItem,
                                   );
                                 }
                               }
