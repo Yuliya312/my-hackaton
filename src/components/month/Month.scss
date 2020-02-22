@@ -1,0 +1,48 @@
+// table, th, td {
+//   border: 1px solid black;
+//   border-collapse: collapse;
+// }
+
+.WeekdayContainer {
+  display: flex;
+}
+
+.Weekday {
+  display: block;
+  flex: 1 0 0%;
+  padding: 0.8rem;
+  background: transparent;
+  font-size: 1.2rem;
+  color: #637381;
+  text-align: center;
+}
+
+.week {
+  display: flex;
+}
+
+.day {
+  display: block;
+  flex: 1 0 0%;
+  width: 14.29%;
+  margin: 0;
+  padding: 0.8rem;
+  background: transparent;
+  border: 1px solid #dfe3e8;
+  border-radius: 0;
+  outline: none;
+  font-size: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.Day--selected {
+  background: #5c6ac4;
+  border: 1px solid #5c6ac4;
+  color: #fff;
+}
+
+.Day--hovering {
+  background: #f2f2f2;
+  border: 1px solid #f2f2f2;
+}
