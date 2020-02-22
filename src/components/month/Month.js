@@ -27,15 +27,16 @@ export class Month extends React.PureComponent {
       this.props.showTasks(null);
     }
     // this.props.updateInitialDate(currentDate)
-  const currentDate = new Date(this.props.initialDate);
+
+    const currentDate = new Date(this.props.initialDate);
+
     currentDate.setDate(date);
-    this.props.updateInitialDate(currentDate)
+    this.props.updateInitialDate(currentDate);
     // console.log(currentDate)
   };
 
   render() {
     const { listTasks, initialDate, currentDay } = this.props;
-    console.log(currentDay)
 
     const canlendarBasicInform = this.generateMonth(initialDate);
     const blanks = [];
