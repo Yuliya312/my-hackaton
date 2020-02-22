@@ -4,12 +4,10 @@ import { NewTask } from '../NewTask/NewTask';
 
 export class ListTasks extends React.Component {
   state = {
-    tasks: this.props.listTasks,
+    listTasks: this.props.listTasks,
   };
 
   addTask = (task) => {
-    // console.log(task);
-
     const newTask = {
       ...task,
     };
@@ -18,26 +16,31 @@ export class ListTasks extends React.Component {
       tasks: [...prevState.tasks, newTask],
     }));
   };
-  // console.log(state);
 
   render() {
-    const { currentTask } = this.props;
-    const { tasks } = this.state;
-    // console.log(tasks);
-    // console.log(this.state);
-    // console.log(this.props);
+    const { listTasks } = this.props;
+    const year = this.props.currentDay.getFullYear();
+    const month = this.props.currentDay.toDateString().split(' ')[1];
+    const day = this.props.currentDay.getDate();
 
+    console.log(listTasks[year][month][day])
     return (
       <>
         <NewTask
-          tasks={this.state.tasks}
-          addTasks={this.addTasks}
+          listTasks={this.state.listTasks}
+          addTasks={this.addTask}
+          initialDate={this.props.initialDate}
+          currentDay={this.props.currentDay}
+          addTasksInList={this.props.addTasksInList}
         />
         <div>
           {
-            currentTask
-              ? this.props.currentTask.map(item => (
-                <p>{item.value}</p>
+            listTasks[year][month][day]
+              ? listTasks[year][month][day].map(item => (
+                <div>
+                  <h3>{item.name}</h3>
+                  <p>{item.value}</p>
+                </div>
               ))
               : null
           }
@@ -53,5 +56,5 @@ ListTasks.defaultProps = {
 
 ListTasks.propTypes = {
   currentTask: PropTypes.arrayOf(PropTypes.shape()),
-  listTasks: PropTypes.shape().isRequired,
+  listTasks: PropTypes.shape({}).isRequired,
 };
