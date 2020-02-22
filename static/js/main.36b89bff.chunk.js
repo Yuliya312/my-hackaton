@@ -1,2 +1,0 @@
-(this["webpackJsonpreact_my-hackaton"]=this["webpackJsonpreact_my-hackaton"]||[]).push([[0],{10:function(t,e,a){"use strict";a.r(e);var n=a(0),c=a.n(n),r=a(2),o=a.n(r);a(8),a(9);o.a.render(c.a.createElement((function(){return c.a.createElement("div",{className:"app"},c.a.createElement("h1",{className:!0},"Mate Hackaton"),c.a.createElement("button",{type:"button",className:"btn btn-primary"},"Start"))}),null),document.getElementById("root"))},3:function(t,e,a){t.exports=a(10)},9:function(t,e,a){}},[[3,1,2]]]);
-//# sourceMappingURL=main.36b89bff.chunk.js.map
