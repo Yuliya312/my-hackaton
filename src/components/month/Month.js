@@ -71,29 +71,30 @@ export class Month extends React.PureComponent {
 
     return (
       <div>
-        <h2>{initialDate.toLocaleString()}</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>ПН</th>
-              <th>ВТ</th>
-              <th>СР</th>
-              <th>ЧТ</th>
-              <th>ПТ</th>
-              <th>СБ</th>
-              <th>НД</th>
-            </tr>
-          </thead>
+        <h2 className="calendar__title">{initialDate.toLocaleString()}</h2>
+        <div>
+          <div>
+            <div className="WeekdayContainer">
+              <div className="Weekday">ПН</div>
+              <div className="Weekday">ВТ</div>
+              <div className="Weekday">СР</div>
+              <div className="Weekday">ЧТ</div>
+              <div className="Weekday">ПТ</div>
+              <div className="Weekday">СБ</div>
+              <div className="Weekday">НД</div>
+            </div>
+          </div>
 
-          <tbody>
+          <div>
             {
               list.map((trItem, index) => {
                 return (
-                  <tr>
+                  <div className="week">
                     {
                       trItem.map((tdItem) => {
                         return (
                           <button // Replace on td
+                            className="day"
                             type="button"
                             onClick={
                               (event) => {
@@ -110,12 +111,12 @@ export class Month extends React.PureComponent {
                         );
                       })
                     }
-                  </tr>
+                  </div>
                 );
               })
             }
-          </tbody>
-        </table>
+          </div>
+        </div>
       </div>
     );
   }

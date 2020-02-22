@@ -3,6 +3,7 @@ import './App.scss';
 import { Month } from './components/month/Month';
 import { ButtonNextPrev } from './components/button/Button';
 import { ListTasks } from './components/ListTasks/ListTasks';
+import { ViewButtons } from './components/ViewButtons/ViewButtons';
 
 const initialTasks = {
   2020: {
@@ -101,22 +102,28 @@ export class App extends React.Component {
     return (
       <div>
         <div className="app">
-          <h1>Mate Hackaton</h1>
-          <ButtonNextPrev
-            initialDate={this.state.initialDate}
-            updateCurrentDate={this.updateCurrentDate}
-          />
-          <Month
-            listTasks={this.state.listTasks}
-            initialDate={this.state.initialDate}
-            showTasks={this.showTasks}
-          />
-        </div>
-        <div className="list-tasks-container">
-          <ListTasks
-            initialTasks={this.state.initialTasks}
-            currentTask={this.state.currentTask}
-          />
+          <div className="calendar">
+            <h1>Mate Hackaton</h1>
+            <div className="navigation">
+              <ButtonNextPrev
+                initialDate={this.state.initialDate}
+                updateCurrentDate={this.updateCurrentDate}
+              />
+              <ViewButtons />
+            </div>
+            <Month
+              listTasks={this.state.listTasks}
+              initialDate={this.state.initialDate}
+              showTasks={this.showTasks}
+            />
+          </div>
+          <div className="calendar__task-list task-list">
+            <ListTasks
+              listTasks={this.state.listTasks}
+              initialTasks={this.state.initialTasks}
+              currentTask={this.state.currentTask}
+            />
+          </div>
         </div>
       </div>
     );
