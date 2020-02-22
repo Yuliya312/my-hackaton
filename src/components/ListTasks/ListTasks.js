@@ -22,7 +22,7 @@ export class ListTasks extends React.Component {
 
   render() {
     const { currentTask } = this.props;
-    // const { tasks } = this.state;
+    const { tasks } = this.state;
     // console.log(tasks);
     // console.log(this.state);
     // console.log(this.props);

@@ -6,7 +6,7 @@ export class NewTask extends Component {
     // id: 0,
     title: '',
     description: '',
-    // inputError: false,
+    inputError: false,
   };
 
   changeHandler = (event) => {
@@ -14,7 +14,7 @@ export class NewTask extends Component {
 
     this.setState({
       [name]: value,
-      // inputError: false,
+      inputError: false,
     });
     // console.log(this.state);
     // console.log(this.props);
@@ -23,7 +23,7 @@ export class NewTask extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { title, description } = this.state;
-    const error = false;
+    let error = false;
 
     this.setState({
 
@@ -33,13 +33,14 @@ export class NewTask extends Component {
       this.setState({
         title: '',
         description: '',
+
       });
 
       this.props.addTask({
         title,
         description,
       });
-      // console.log(this.state);
+      console.log(this.state);
     }
   }
 
