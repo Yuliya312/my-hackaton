@@ -98,6 +98,7 @@ export class App extends React.Component {
                 <ButtonNextPrev
                   initialDate={this.state.initialDate}
                   updateCurrentDate={this.updateCurrentDate}
+                  updateInitialDate={this.updateInitialDate}
                   showTasks={this.showTasks}
                 />
                 <ViewButtons />
@@ -105,6 +106,7 @@ export class App extends React.Component {
               <Month
                 listTasks={this.state.listTasks}
                 updateInitialDate={this.updateInitialDate}
+                updateCurrentDate={this.updateCurrentDate}
                 initialDate={this.state.initialDate}
                 showTasks={this.showTasks}
                 currentDay={this.state.currentDay}
@@ -113,7 +115,6 @@ export class App extends React.Component {
             <div className="calendar__task-list task-list">
               <ListTasks
                 listTasks={this.state.listTasks}
-                // currentTask={this.state.currentTask}
                 initialDate={this.state.initialDate}
                 currentDay={this.state.currentDay}
                 addTasksInList={this.addTasksInList}

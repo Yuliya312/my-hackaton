@@ -6,7 +6,9 @@ export class Month extends React.PureComponent {
   generateMonth = (date) => {
     const currentDate = date;
     const nextMonth = new Date(date.getFullYear(), date.getMonth() + 1);
-    const startDay = currentDate.getDay() ? currentDate.getDay() : 7; // ?
+
+    currentDate.setDate(1);
+    const startDay = currentDate.getDay() ? currentDate.getDay() : 7;
 
     nextMonth.setDate(-0);
     const daysInMonth = nextMonth.getDate();
@@ -22,17 +24,20 @@ export class Month extends React.PureComponent {
   showCurrentTask = (tasks, date) => {
     if (tasks) {
       this.props.showTasks(tasks);
-      // console.log(value[0].name);
     } else {
       this.props.showTasks(null);
     }
-    // this.props.updateInitialDate(currentDate)
 
     const currentDate = new Date(this.props.initialDate);
-
     currentDate.setDate(date);
     this.props.updateInitialDate(currentDate);
-    // console.log(currentDate)
+  };
+
+  updateCurrentDate = (date) => {
+    const currentDate = new Date(this.props.initialDate);
+    currentDate.setDate(date);
+    const test = new Date(currentDate);
+    this.props.updateInitialDate(test);
   };
 
   render() {
@@ -108,6 +113,8 @@ export class Month extends React.PureComponent {
                                     listTasks[year][month][tdItem],
                                     tdItem,
                                   );
+                                } else {
+                                  this.updateCurrentDate(tdItem);
                                 }
                               }
                             }
