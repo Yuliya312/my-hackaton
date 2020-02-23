@@ -28,7 +28,9 @@ export class NewTask extends Component {
     const month = this.props.currentDay.toDateString().split(' ')[1];
     const day = this.props.currentDay.getDate();
 
-    let newTask = this.props.listTasks[year][month][day];
+    // console.log(this.props.listTasks[year][month]);
+
+    let newTask = this.props.listTasks[year] && this.props.listTasks[year][month] && this.props.listTasks[year][month][day];
 
     if (newTask) {
       newTask.push({

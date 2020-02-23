@@ -22,7 +22,6 @@ export class ListTasks extends React.Component {
     const year = this.props.currentDay.getFullYear();
     const month = this.props.currentDay.toDateString().split(' ')[1];
     const day = this.props.currentDay.getDate();
-    // console.log(listTasks[year][month][day])
 
     return (
       <>
