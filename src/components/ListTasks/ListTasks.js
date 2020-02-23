@@ -8,8 +8,6 @@ export class ListTasks extends React.Component {
   };
 
   addTask = (task) => {
-    // console.log(task);
-
     const newTask = {
       ...task,
     };
@@ -18,7 +16,6 @@ export class ListTasks extends React.Component {
       tasks: [...prevState.tasks, newTask],
     }));
   };
-  // console.log(state);
 
   render() {
     const { listTasks } = this.props;
@@ -37,7 +34,7 @@ export class ListTasks extends React.Component {
         />
         <div className="tasks-list">
           {
-            listTasks[year][month][day]
+            listTasks[year] && listTasks[year][month] && listTasks[year][month][day]
               ? listTasks[year][month][day].map(item => (
                 <div>
                   <h3>{item.name}</h3>
