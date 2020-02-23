@@ -5,6 +5,8 @@ import { ButtonNextPrev } from './components/buttonNextPrev/ButtonNextPrev';
 import { ListTasks } from './components/ListTasks/ListTasks';
 import { ViewButtons } from './components/ViewButtons/ViewButtons';
 
+// import { Day } from './components/day/Day';
+
 const initialTasks = {
 
   // 2020: {
