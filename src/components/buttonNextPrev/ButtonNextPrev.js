@@ -8,8 +8,11 @@ export class ButtonNextPrev extends React.Component {
       initialDate.getFullYear(),
       initialDate.getMonth() + 1,
     );
+    const toogleOnTodayDay = newDate;
+    toogleOnTodayDay.setDate(this.props.dayToday)
 
-    updateCurrentDate(newDate);
+    updateCurrentDate(toogleOnTodayDay);
+    this.props.updateInitialDate(toogleOnTodayDay);
   };
 
   goPrev= () => {
@@ -18,8 +21,11 @@ export class ButtonNextPrev extends React.Component {
       initialDate.getFullYear(),
       initialDate.getMonth() - 1,
     );
+    const toogleOnTodayDay = newDate;
+    toogleOnTodayDay.setDate(this.props.dayToday)
+    updateCurrentDate(toogleOnTodayDay);
+    this.props.updateInitialDate(toogleOnTodayDay);
 
-    updateCurrentDate(newDate);
   };
 
   render() {

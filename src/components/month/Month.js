@@ -21,6 +21,7 @@ export class Month extends React.PureComponent {
     };
   };
 
+
   showCurrentTask = (tasks, date) => {
     if (tasks) {
       this.props.showTasks(tasks);
@@ -78,7 +79,7 @@ export class Month extends React.PureComponent {
 
     const year = initialDate.getFullYear();
     const month = initialDate.toDateString().split(' ')[1];
-
+// console.log(this.props.dayToday)
     return (
       <div>
         <h2 className="calendar__title">{currentDay.toLocaleString()}</h2>
@@ -103,7 +104,8 @@ export class Month extends React.PureComponent {
                     {
                       trItem.map((tdItem) => {
                         return (
-                          <button // Replace on td
+                          <button
+                            // className={`day ${this.props.dayToday === tdItem ? 'currentDay': ''}`}
                             className="day"
                             type="button"
                             onClick={
