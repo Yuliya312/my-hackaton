@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NewTask } from '../NewTask/NewTask';
 
+import './ListTasks.scss';
+
 export class ListTasks extends React.Component {
   state = {
     listTasks: this.props.listTasks,
@@ -34,11 +36,13 @@ export class ListTasks extends React.Component {
         />
         <div className="tasks-list">
           {
-            listTasks[year] && listTasks[year][month] && listTasks[year][month][day]
+            listTasks[year]
+            && listTasks[year][month]
+            && listTasks[year][month][day]
               ? listTasks[year][month][day].map(item => (
-                <div>
-                  <h3>{item.name}</h3>
-                  <p>{item.value}</p>
+                <div className="tasks-list__task task">
+                  <h3 className="task__title">{item.name}</h3>
+                  <p className="task__text">{item.value}</p>
                 </div>
               ))
               : null

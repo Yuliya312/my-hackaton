@@ -156,7 +156,7 @@ export class App extends React.Component {
                 dayToday={this.state.dayToday()}
               />
             </div>
-            <div className="calendar__task-list task-list">
+            <div className="calendar__add-task-form">
               <ListTasks
                 listTasks={this.state.listTasks}
                 initialDate={this.state.initialDate}
