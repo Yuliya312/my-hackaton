@@ -25,8 +25,8 @@ const initialTasks = {
         {
           name: 'Test',
           value: 'try to work',
-        }
-      ]
+        },
+      ],
     },
 
     Feb: {
@@ -50,8 +50,8 @@ const initialTasks = {
         {
           name: 'Test-feb',
           value: 'try to work-feb',
-        }
-      ]
+        },
+      ],
     },
     Mar: {
       1: [
@@ -74,8 +74,8 @@ const initialTasks = {
         {
           name: 'Test-feb',
           value: 'try to work-feb',
-        }
-      ]
+        },
+      ],
     },
 
   },
@@ -87,7 +87,8 @@ export class App extends React.Component {
     initialDate: new Date(),
     currentDay: new Date(),
     dayToday: () => {
-      let today = new Date();
+      const today = new Date();
+
       return today.getDate();
     },
     currentTask: null,
@@ -108,7 +109,7 @@ export class App extends React.Component {
   updateInitialDate = (value) => {
     this.setState({
       currentDay: value,
-    })
+    });
   };
 
   addTasksInList = (year, month, day, value) => {
@@ -121,10 +122,10 @@ export class App extends React.Component {
           [month]: {
             ...prevState.listTasks[year][month],
             [day]: value,
-          }
-        }
-      }
-    }))
+          },
+        },
+      },
+    }));
   };
 
   render() {

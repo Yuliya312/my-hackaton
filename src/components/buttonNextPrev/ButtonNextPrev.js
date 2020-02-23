@@ -9,7 +9,8 @@ export class ButtonNextPrev extends React.Component {
       initialDate.getMonth() + 1,
     );
     const toogleOnTodayDay = newDate;
-    toogleOnTodayDay.setDate(this.props.dayToday)
+
+    toogleOnTodayDay.setDate(this.props.dayToday);
 
     updateCurrentDate(toogleOnTodayDay);
     this.props.updateInitialDate(toogleOnTodayDay);
@@ -22,7 +23,8 @@ export class ButtonNextPrev extends React.Component {
       initialDate.getMonth() - 1,
     );
     const toogleOnTodayDay = newDate;
-    toogleOnTodayDay.setDate(this.props.dayToday)
+
+    toogleOnTodayDay.setDate(this.props.dayToday);
     updateCurrentDate(toogleOnTodayDay);
     this.props.updateInitialDate(toogleOnTodayDay);
 
@@ -56,4 +58,6 @@ ButtonNextPrev.propTypes = {
     getFullYear: PropTypes.func,
     getMonth: PropTypes.func,
   }).isRequired,
+  dayToday: PropTypes.number.isRequired,
+  updateInitialDate: PropTypes.func.isRequired,
 };
