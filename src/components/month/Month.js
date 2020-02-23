@@ -1,7 +1,6 @@
 import React from 'react';
 import './Month.scss';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
 
 export class Month extends React.PureComponent {
   generateMonth = (date) => {
@@ -104,12 +103,11 @@ export class Month extends React.PureComponent {
             {
               list.map((trItem, index) => {
                 return (
-                  <div className="calendar__week" key={v4()}>
+                  <div className="calendar__week">
                     {
                       trItem.map((tdItem) => {
                         return (
                           <button // Replace on td
-                            key={v4()}
                             className="calendar__day"
                             type="button"
                             onClick={

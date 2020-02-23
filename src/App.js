@@ -132,7 +132,7 @@ export class App extends React.Component {
     return (
       <div>
         <div className="app">
-          <h1>Mate Hackaton</h1>
+          <h1 className="calendar__heading">Calendar Planner</h1>
           <div className="calendar">
             <div className="calendar__main">
               <div className="calendar__navigation navigation">

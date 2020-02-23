@@ -19,10 +19,6 @@ button {
   border: 1px solid #d9d9d9;
 }
 
-.app {
-
-}
-
 .calendar {
   max-width: 1800px;
   display: flex;
@@ -30,11 +26,19 @@ button {
   justify-content: center;
 
   text-align: center;
-  margin: 100px auto 0;
+  margin: 0 auto;
+  padding: 10px 50px;
   font-size: 40px;
 
   @media screen and (max-width: 1100px) {
     margin: 0 10px;
+  }
+
+  &__heading {
+    margin: 20px auto 0;
+    text-align: center;
+    font-size: 40px;
+
   }
 
   &__main {
