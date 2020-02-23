@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 import { NewTask } from '../NewTask/NewTask';
 
 export class ListTasks extends React.Component {
@@ -34,9 +35,11 @@ export class ListTasks extends React.Component {
         />
         <div className="tasks-list">
           {
-            listTasks[year] && listTasks[year][month] && listTasks[year][month][day]
+            listTasks[year]
+            && listTasks[year][month]
+            && listTasks[year][month][day]
               ? listTasks[year][month][day].map(item => (
-                <div>
+                <div key={v4()}>
                   <h3>{item.name}</h3>
                   <p>{item.value}</p>
                 </div>
