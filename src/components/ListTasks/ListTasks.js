@@ -55,5 +55,8 @@ ListTasks.defaultProps = {
 
 ListTasks.propTypes = {
   currentTask: PropTypes.arrayOf(PropTypes.shape()),
+  currentDay: PropTypes.shape().isRequired,
+  initialDate: PropTypes.shape().isRequired,
   listTasks: PropTypes.shape({}).isRequired,
+  addTasksInList: PropTypes.func.isRequired,
 };

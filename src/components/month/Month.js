@@ -21,7 +21,6 @@ export class Month extends React.PureComponent {
     };
   };
 
-
   showCurrentTask = (tasks, date) => {
     if (tasks) {
       this.props.showTasks(tasks);
@@ -30,14 +29,17 @@ export class Month extends React.PureComponent {
     }
 
     const currentDate = new Date(this.props.initialDate);
+
     currentDate.setDate(date);
     this.props.updateInitialDate(currentDate);
   };
 
   updateCurrentDate = (date) => {
     const currentDate = new Date(this.props.initialDate);
+
     currentDate.setDate(date);
     const test = new Date(currentDate);
+
     this.props.updateInitialDate(test);
   };
 
@@ -80,6 +82,7 @@ export class Month extends React.PureComponent {
     const year = initialDate.getFullYear();
     const month = initialDate.toDateString().split(' ')[1];
 // console.log(this.props.dayToday)
+
     return (
       <div className="calendar__month">
         <h2 className="calendar__title">{currentDay.toLocaleString()}</h2>
@@ -143,4 +146,6 @@ Month.propTypes = {
     toDateString: PropTypes.func,
   }).isRequired,
   showTasks: PropTypes.func.isRequired,
+  updateInitialDate: PropTypes.func.isRequired,
+  currentDay: PropTypes.shape().isRequired,
 };

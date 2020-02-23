@@ -17,7 +17,7 @@ export class NewTask extends Component {
       });
     } else if (name === 'description') {
       this.setState({
-        value: value,
+        value,
       });
     }
   };
@@ -30,7 +30,9 @@ export class NewTask extends Component {
 
     // console.log(this.props.listTasks[year][month]);
 
-    let newTask = this.props.listTasks[year] && this.props.listTasks[year][month] && this.props.listTasks[year][month][day];
+    let newTask = this.props.listTasks[year]
+      && this.props.listTasks[year][month]
+      && this.props.listTasks[year][month][day];
 
     if (newTask) {
       newTask.push({
@@ -93,10 +95,8 @@ export class NewTask extends Component {
 }
 
 NewTask.propTypes = {
-  // tasks: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     title: PropTypes.string.isRequired,
-  //   }).isRequired,
-  // ).isRequired,
-  addTask: PropTypes.func.isRequired,
+  currentDay: PropTypes.shape().isRequired,
+  addTasksInList: PropTypes.func.isRequired,
+  listTasks: PropTypes.shape().isRequired,
+  // addTask: PropTypes.func.isRequired,
 };
