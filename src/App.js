@@ -113,7 +113,7 @@ export class App extends React.Component {
   };
 
   addTasksInList = (year, month, day, value) => {
-    if(this.state.listTasks[year] === undefined) {
+    if (this.state.listTasks[year] === undefined) {
       // console.log(value);
       this.setState(prevState => ({
         listTasks: {
@@ -121,36 +121,19 @@ export class App extends React.Component {
           [year]: {
             ...prevState.listTasks[year],
             [month]: {
-              [day]:[
-                ...value
+              [day]: [
+                ...value,
               ],
             },
           },
-        }
+        },
       }));
-      return;
-    }
-    if(this.state.listTasks[year][month] === undefined) {
-      // console.log(value);
-      this.setState(prevState => ({
-        listTasks: {
-          ...prevState.listTasks,
-          [year]: {
-            ...prevState.listTasks[year],
-            [month]: {
-              ...prevState.listTasks[year][month],
-              [day]:[
-                ...value
-              ],
-            },
-          },
-        }
-      }));
+
       return;
     }
 
-    if(!this.state.listTasks[year][month][day]) {
-      console.log('FF')
+    if (this.state.listTasks[year][month] === undefined) {
+      // console.log(value);
       this.setState(prevState => ({
         listTasks: {
           ...prevState.listTasks,
@@ -158,14 +141,35 @@ export class App extends React.Component {
             ...prevState.listTasks[year],
             [month]: {
               ...prevState.listTasks[year][month],
-              [day]:[
-                // ...prevState.listTasks[day],
-                ...value
+              [day]: [
+                ...value,
               ],
             },
           },
-        }
+        },
       }));
+
+      return;
+    }
+
+    if (!this.state.listTasks[year][month][day]) {
+      // console.log('FF')
+      this.setState(prevState => ({
+        listTasks: {
+          ...prevState.listTasks,
+          [year]: {
+            ...prevState.listTasks[year],
+            [month]: {
+              ...prevState.listTasks[year][month],
+              [day]: [
+                // ...prevState.listTasks[day],
+                ...value,
+              ],
+            },
+          },
+        },
+      }));
+
       return;
     }
 
