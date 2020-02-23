@@ -11,18 +11,21 @@ const initialTasks = {
     Jan: {
       1: [
         {
+          id: '202011',
           name: 'list of goods',
           value: 'potato, milk, bread',
         },
       ],
       5: [
         {
+          id: '202015',
           name: 'call to mothter',
           value: 'she find new job',
         },
       ],
       23: [
         {
+          id: '2020123',
           name: 'Test',
           value: 'try to work',
         },
@@ -32,22 +35,26 @@ const initialTasks = {
     Feb: {
       1: [
         {
+          id: '202021',
           name: 'watch the Witcher',
           value: 'I must watch this shit',
         },
         {
+          id: '2020212',
           name: 'watch Friends',
           value: 'the greatest comedy',
         },
       ],
       2: [
         {
+          id: '202022',
           name: 'kill Malroy',
           value: 'some on mush die',
         },
       ],
       23: [
         {
+          id: '2020223',
           name: 'Test-feb',
           value: 'try to work-feb',
         },
@@ -56,22 +63,26 @@ const initialTasks = {
     Mar: {
       1: [
         {
+          id: '202031',
           name: 'watch the Witcher',
           value: 'I must watch this shit',
         },
         {
+          id: '202021/2',
           name: 'watch Friends',
           value: 'the greatest comedy',
         },
       ],
       2: [
         {
+          id: '202022',
           name: 'kill Malroy',
           value: 'some on mush die',
         },
       ],
       23: [
         {
+          id: '2020223',
           name: 'Test-feb',
           value: 'try to work-feb',
         },
