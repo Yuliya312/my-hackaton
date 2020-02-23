@@ -81,18 +81,18 @@ export class Month extends React.PureComponent {
     const month = initialDate.toDateString().split(' ')[1];
 // console.log(this.props.dayToday)
     return (
-      <div>
+      <div className="calendar__month">
         <h2 className="calendar__title">{currentDay.toLocaleString()}</h2>
         <div>
           <div>
-            <div className="WeekdayContainer">
-              <div className="Weekday">ПН</div>
-              <div className="Weekday">ВТ</div>
-              <div className="Weekday">СР</div>
-              <div className="Weekday">ЧТ</div>
-              <div className="Weekday">ПТ</div>
-              <div className="Weekday">СБ</div>
-              <div className="Weekday">НД</div>
+            <div className="calendar__title-week">
+              <div className="calendar__weekday">ПН</div>
+              <div className="calendar__weekday">ВТ</div>
+              <div className="calendar__weekday">СР</div>
+              <div className="calendar__weekday">ЧТ</div>
+              <div className="calendar__weekday">ПТ</div>
+              <div className="calendar__weekday">СБ</div>
+              <div className="calendar__weekday">НД</div>
             </div>
           </div>
 
@@ -100,13 +100,12 @@ export class Month extends React.PureComponent {
             {
               list.map((trItem, index) => {
                 return (
-                  <div className="week">
+                  <div className="calendar__week">
                     {
                       trItem.map((tdItem) => {
                         return (
-                          <button
-                            // className={`day ${this.props.dayToday === tdItem ? 'currentDay': ''}`}
-                            className="day"
+                          <button // Replace on td
+                            className="calendar__day"
                             type="button"
                             onClick={
                               (event) => {

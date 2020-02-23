@@ -134,7 +134,7 @@ export class App extends React.Component {
           <h1>Mate Hackaton</h1>
           <div className="calendar">
             <div className="calendar__main">
-              <div className="navigation">
+              <div className="calendar__navigation navigation">
                 <ButtonNextPrev
                   initialDate={this.state.initialDate}
                   updateCurrentDate={this.updateCurrentDate}

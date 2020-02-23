@@ -10,13 +10,10 @@
   text-align: center;
   font-family: "Open Sans";
 
-  &__title-label {
-    // margin-bottom: 20px;
-  }
-
   &__input {
     width: 100%;
     margin: 15px 0;
+    padding: 15px;
     text-align: start;
     border-radius: 5px;
     border: 1px solid #637381;
@@ -29,17 +26,17 @@
   &__btn {
     padding: 5px 20px;
     margin: 0 auto;
-  }
 
-  &__btn:hover {
-    background: rgba(#566bf3, 0.8);
-    border: 1px solid #5c6ac4;
-    color: #fff;
-  }
+    &:hover {
+      background: rgba(#566bf3, 0.8);
+      border: 1px solid #5c6ac4;
+      color: #fff;
+    }
 
-  &__btn:focus {
-    background: #5c6ac4;
-    border: 1px solid #5c6ac4;
-    color: #fff;
+    &:focus {
+      background: #5c6ac4;
+      border: 1px solid #5c6ac4;
+      color: #fff;
+    }
   }
 }
