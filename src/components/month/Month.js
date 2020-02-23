@@ -44,7 +44,7 @@ export class Month extends React.PureComponent {
   };
 
   render() {
-    const { listTasks, initialDate, currentDay, dayToday } = this.props;
+    const { listTasks, initialDate, dayToday } = this.props;
 
     const canlendarBasicInform = this.generateMonth(initialDate);
     const blanks = [];
@@ -102,11 +102,12 @@ export class Month extends React.PureComponent {
             {
               list.map((trItem, index) => {
                 return (
-                  <div className="calendar__week">
+                  <div className="calendar__week" key={String(index)}>
                     {
-                      trItem.map((tdItem) => {
+                      trItem.map((tdItem, ind) => {
                         return (
                           <button
+                            key={String(ind)}
                             className={
                               `calendar__day
                               ${dayToday === tdItem ? 'todayDay' : ''}`
@@ -149,5 +150,5 @@ Month.propTypes = {
   }).isRequired,
   showTasks: PropTypes.func.isRequired,
   updateInitialDate: PropTypes.func.isRequired,
-  currentDay: PropTypes.shape().isRequired,
+  dayToday: PropTypes.number.isRequired,
 };
