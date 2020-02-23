@@ -24,7 +24,8 @@ button {
 }
 
 .calendar {
-  max-width: 1800px;
+  max-width: 1200px;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -55,7 +56,7 @@ button {
     margin-bottom: 20px;
   }
 
-  &__task-list {
+  &__add-task-form {
     width: 40%;
     max-width: 400px;
     padding: 20px;
