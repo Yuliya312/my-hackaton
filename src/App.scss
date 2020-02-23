@@ -19,12 +19,9 @@ button {
   border: 1px solid #d9d9d9;
 }
 
-.app {
-
-}
-
 .calendar {
   max-width: 1200px;
+  width: 100%;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -35,7 +32,8 @@ button {
   font-size: 40px;
 
   @media screen and (max-width: 1100px) {
-    margin: 0 10px;
+    max-width: 800px;
+    width: 100%;
   }
 
   &__main {
@@ -68,6 +66,7 @@ button {
     @media screen and (max-width: 1100px) {
       width: 100%;
       max-width: 800px;
+      margin: 10px;
     }
   }
 
