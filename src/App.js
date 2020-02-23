@@ -5,7 +5,7 @@ import { ButtonNextPrev } from './components/buttonNextPrev/ButtonNextPrev';
 import { ListTasks } from './components/ListTasks/ListTasks';
 import { ViewButtons } from './components/ViewButtons/ViewButtons';
 
-import { Day } from './components/day/Day';
+// import { Day } from './components/day/Day';
 
 const initialTasks = {
 
@@ -211,12 +211,6 @@ export class App extends React.Component {
                 />
                 <ViewButtons />
               </div>
-              <Day
-                initialDate={this.state.initialDate}
-                showTasks={this.showTasks}
-                currentDay={this.state.currentDay}
-                dayToday={this.state.dayToday()}
-              />
               <Month
                 listTasks={this.state.listTasks}
                 updateInitialDate={this.updateInitialDate}
