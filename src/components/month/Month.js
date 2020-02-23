@@ -5,7 +5,7 @@ import { v4 } from 'uuid';
 
 export class Month extends React.PureComponent {
   generateMonth = (date) => {
-    const currentDate = date;
+    const currentDate = new Date(date);
     const nextMonth = new Date(date.getFullYear(), date.getMonth() + 1);
 
     currentDate.setDate(1);
@@ -45,12 +45,12 @@ export class Month extends React.PureComponent {
   };
 
   render() {
-    const { listTasks, initialDate, currentDay } = this.props;
+    const { listTasks, initialDate, currentDay, dayToday } = this.props;
 
     const canlendarBasicInform = this.generateMonth(initialDate);
     const blanks = [];
 
-    for (let i = 1; i < canlendarBasicInform.startDay; i += 1) {
+    for (let i = 1; i < canlendarBasicInform.startDay + 1; i += 1) {
       blanks.push((
         ''
       ));
@@ -82,21 +82,20 @@ export class Month extends React.PureComponent {
 
     const year = initialDate.getFullYear();
     const month = initialDate.toDateString().split(' ')[1];
-    // console.log(this.props.dayToday)
 
     return (
       <div className="calendar__month">
-        <h2 className="calendar__title">{currentDay.toLocaleString()}</h2>
+        <h2 className="calendar__title">{`${year} ${month}`}</h2>
         <div>
           <div>
             <div className="calendar__title-week">
-              <div className="calendar__weekday">ПН</div>
-              <div className="calendar__weekday">ВТ</div>
-              <div className="calendar__weekday">СР</div>
-              <div className="calendar__weekday">ЧТ</div>
-              <div className="calendar__weekday">ПТ</div>
-              <div className="calendar__weekday">СБ</div>
-              <div className="calendar__weekday">НД</div>
+              <div className="calendar__weekday">Sun</div>
+              <div className="calendar__weekday">Mon</div>
+              <div className="calendar__weekday">Tue</div>
+              <div className="calendar__weekday">Wed</div>
+              <div className="calendar__weekday">Thu</div>
+              <div className="calendar__weekday">Fri</div>
+              <div className="calendar__weekday">Sat</div>
             </div>
           </div>
 
@@ -104,13 +103,15 @@ export class Month extends React.PureComponent {
             {
               list.map((trItem, index) => {
                 return (
-                  <div className="calendar__week" key={String(index)}>
+                  <div className="calendar__week">
                     {
-                      trItem.map((tdItem, i) => {
+                      trItem.map((tdItem) => {
                         return (
                           <button
-                            key={String(i)}
-                            className="calendar__day"
+                            className={
+                              `calendar__day
+                              ${dayToday === tdItem ? 'todayDay' : ''}`
+                            }
                             type="button"
                             onClick={
                               (event) => {
