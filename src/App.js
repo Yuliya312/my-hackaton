@@ -8,7 +8,7 @@ import { ViewButtons } from './components/ViewButtons/ViewButtons';
 // import { Day } from './components/day/Day';
 
 const initialTasks = {
-
+  //
   // 2020: {
   //
   //   Jan: {
@@ -86,7 +86,7 @@ const initialTasks = {
 
 export class App extends React.Component {
   state = {
-    listTasks: initialTasks,
+    listTasks: JSON.parse(localStorage.getItem('listTasks')) || initialTasks,
     initialDate: new Date(),
     currentDay: new Date(),
     dayToday: () => {
@@ -193,7 +193,12 @@ export class App extends React.Component {
     }));
   };
 
+  componentDidUpdate() {
+    localStorage.setItem('listTasks', JSON.stringify(this.state.listTasks));
+  }
+
   render() {
+
     return (
       <div>
         <div className="app">
