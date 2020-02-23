@@ -21,6 +21,7 @@ export class Month extends React.PureComponent {
     };
   };
 
+
   showCurrentTask = (tasks, date) => {
     if (tasks) {
       this.props.showTasks(tasks);
@@ -78,7 +79,7 @@ export class Month extends React.PureComponent {
 
     const year = initialDate.getFullYear();
     const month = initialDate.toDateString().split(' ')[1];
-
+// console.log(this.props.dayToday)
     return (
       <div className="calendar__month">
         <h2 className="calendar__title">{currentDay.toLocaleString()}</h2>

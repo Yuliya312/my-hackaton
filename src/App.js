@@ -21,6 +21,12 @@ const initialTasks = {
           value: 'she find new job',
         },
       ],
+      23: [
+        {
+          name: 'Test',
+          value: 'try to work',
+        }
+      ]
     },
 
     Feb: {
@@ -40,6 +46,36 @@ const initialTasks = {
           value: 'some on mush die',
         },
       ],
+      23: [
+        {
+          name: 'Test-feb',
+          value: 'try to work-feb',
+        }
+      ]
+    },
+    Mar: {
+      1: [
+        {
+          name: 'watch the Witcher',
+          value: 'I must watch this shit',
+        },
+        {
+          name: 'watch Friends',
+          value: 'the greatest comedy',
+        },
+      ],
+      2: [
+        {
+          name: 'kill Malroy',
+          value: 'some on mush die',
+        },
+      ],
+      23: [
+        {
+          name: 'Test-feb',
+          value: 'try to work-feb',
+        }
+      ]
     },
 
   },
@@ -50,6 +86,10 @@ export class App extends React.Component {
     listTasks: initialTasks,
     initialDate: new Date(),
     currentDay: new Date(),
+    dayToday: () => {
+      let today = new Date();
+      return today.getDate();
+    },
     currentTask: null,
   };
 
@@ -100,6 +140,8 @@ export class App extends React.Component {
                   updateCurrentDate={this.updateCurrentDate}
                   updateInitialDate={this.updateInitialDate}
                   showTasks={this.showTasks}
+                  dayToday={this.state.dayToday()}
+
                 />
                 <ViewButtons />
               </div>
@@ -110,6 +152,7 @@ export class App extends React.Component {
                 initialDate={this.state.initialDate}
                 showTasks={this.showTasks}
                 currentDay={this.state.currentDay}
+                dayToday={this.state.dayToday()}
               />
             </div>
             <div className="calendar__task-list task-list">
