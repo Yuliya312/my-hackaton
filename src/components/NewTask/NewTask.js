@@ -24,6 +24,13 @@ export class NewTask extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+
+    if (!this.state.value.length || !this.state.name.length) {
+      alert('Error, please, check fields');
+
+      return;
+    }
+
     const year = this.props.currentDay.getFullYear();
     const month = this.props.currentDay.toDateString().split(' ')[1];
     const day = this.props.currentDay.getDate();

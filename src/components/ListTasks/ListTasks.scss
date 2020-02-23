@@ -1,0 +1,40 @@
+.tasks-list {
+  position: absolute;
+  width: calc(100% - 70px);
+  margin-left: 40px;
+  left: 0;
+  top: 600px;
+  max-width: 1200px;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+  0 1px 3px 0 rgba(63, 63, 68, 0.15);
+
+  @media screen and (max-width: 1100px) {
+    width: calc(100% - 20px);
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__task {
+    margin: 10px 0;
+    padding: 10px;
+    box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+    0 1px 3px 0 rgba(63, 63, 68, 0.15);
+  }
+}
+
+.task {
+  &__title {
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4rem;
+    padding-left: 20px;
+    word-wrap: break-word;
+  }
+
+  &__text {
+    width: 100%;
+    word-wrap: break-word;
+  }
+ }
