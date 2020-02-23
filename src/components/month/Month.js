@@ -104,11 +104,12 @@ export class Month extends React.PureComponent {
             {
               list.map((trItem, index) => {
                 return (
-                  <div className="calendar__week">
+                  <div className="calendar__week" key={String(index)}>
                     {
-                      trItem.map((tdItem) => {
+                      trItem.map((tdItem, i) => {
                         return (
                           <button
+                            key={String(i)}
                             className="calendar__day"
                             type="button"
                             onClick={
