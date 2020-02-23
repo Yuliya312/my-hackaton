@@ -13,6 +13,7 @@ export class ListTasks extends React.Component {
   addTask = (task) => {
     const newTask = {
       ...task,
+      id: v4(),
     };
 
     this.setState(prevState => ({
@@ -41,7 +42,7 @@ export class ListTasks extends React.Component {
             && listTasks[year][month]
             && listTasks[year][month][day]
               ? listTasks[year][month][day].map(item => (
-                <div className="tasks-list__task task" key={v4()}>
+                <div className="tasks-list__task task" key={item.id}>
                   <h3 className="task__title">{item.name}</h3>
                   <p className="task__text">{item.value}</p>
                 </div>
