@@ -58,26 +58,26 @@ export class NewTask extends Component {
         className="form"
         onSubmit={this.handleSubmit}
       >
-        <label htmlFor="taskTitle">
-          Title:
+        <label htmlFor="taskTitle" className="form__title-label">
+          New task name:
           <input
             type="text"
             name="title"
             id="taskTitle"
             className="form__input"
-            placeholder="task title"
+            placeholder="Add new task name"
             onChange={this.changeHandler}
             value={this.state.name}
           />
         </label>
-        <label htmlFor="taskDescription">
-          Description:
+        <label htmlFor="taskDescription" className="form__title-label">
+          Task description:
           <textarea
             type="text"
             name="description"
             id="taskDescription"
             className="form__input"
-            placeholder="task description"
+            placeholder="Add new task description"
             rows="5"
             cols="30"
             onChange={this.changeHandler}
