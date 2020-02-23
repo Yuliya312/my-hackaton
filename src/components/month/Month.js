@@ -1,7 +1,6 @@
 import React from 'react';
 import './Month.scss';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
 
 export class Month extends React.PureComponent {
   generateMonth = (date) => {
