@@ -6,79 +6,79 @@ import { ListTasks } from './components/ListTasks/ListTasks';
 import { ViewButtons } from './components/ViewButtons/ViewButtons';
 
 const initialTasks = {
-  2020: {
-
-    Jan: {
-      1: [
-        {
-          name: 'list of goods',
-          value: 'potato, milk, bread',
-        },
-      ],
-      5: [
-        {
-          name: 'call to mothter',
-          value: 'she find new job',
-        },
-      ],
-      23: [
-        {
-          name: 'Test',
-          value: 'try to work',
-        },
-      ],
-    },
-
-    Feb: {
-      1: [
-        {
-          name: 'watch the Witcher',
-          value: 'I must watch this shit',
-        },
-        {
-          name: 'watch Friends',
-          value: 'the greatest comedy',
-        },
-      ],
-      2: [
-        {
-          name: 'kill Malroy',
-          value: 'some on mush die',
-        },
-      ],
-      23: [
-        {
-          name: 'Test-feb',
-          value: 'try to work-feb',
-        },
-      ],
-    },
-    Mar: {
-      1: [
-        {
-          name: 'watch the Witcher',
-          value: 'I must watch this shit',
-        },
-        {
-          name: 'watch Friends',
-          value: 'the greatest comedy',
-        },
-      ],
-      2: [
-        {
-          name: 'kill Malroy',
-          value: 'some on mush die',
-        },
-      ],
-      23: [
-        {
-          name: 'Test-feb',
-          value: 'try to work-feb',
-        },
-      ],
-    },
-
-  },
+  // 2020: {
+  //
+  //   Jan: {
+  //     1: [
+  //       {
+  //         name: 'list of goods',
+  //         value: 'potato, milk, bread',
+  //       },
+  //     ],
+  //     5: [
+  //       {
+  //         name: 'call to mothter',
+  //         value: 'she find new job',
+  //       },
+  //     ],
+  //     23: [
+  //       {
+  //         name: 'Test',
+  //         value: 'try to work',
+  //       },
+  //     ],
+  //   },
+  //
+  //   Feb: {
+  //     1: [
+  //       {
+  //         name: 'watch the Witcher',
+  //         value: 'I must watch this shit',
+  //       },
+  //       {
+  //         name: 'watch Friends',
+  //         value: 'the greatest comedy',
+  //       },
+  //     ],
+  //     2: [
+  //       {
+  //         name: 'kill Malroy',
+  //         value: 'some on mush die',
+  //       },
+  //     ],
+  //     23: [
+  //       {
+  //         name: 'Test-feb',
+  //         value: 'try to work-feb',
+  //       },
+  //     ],
+  //   },
+  //   Mar: {
+  //     1: [
+  //       {
+  //         name: 'watch the Witcher',
+  //         value: 'I must watch this shit',
+  //       },
+  //       {
+  //         name: 'watch Friends',
+  //         value: 'the greatest comedy',
+  //       },
+  //     ],
+  //     2: [
+  //       {
+  //         name: 'kill Malroy',
+  //         value: 'some on mush die',
+  //       },
+  //     ],
+  //     23: [
+  //       {
+  //         name: 'Test-feb',
+  //         value: 'try to work-feb',
+  //       },
+  //     ],
+  //   },
+  //
+  // },
 };
 
 export class App extends React.Component {
@@ -113,7 +113,62 @@ export class App extends React.Component {
   };
 
   addTasksInList = (year, month, day, value) => {
-    // console.log(year, month, day, value);
+    if(this.state.listTasks[year] === undefined) {
+      // console.log(value);
+      this.setState(prevState => ({
+        listTasks: {
+          ...prevState.listTasks,
+          [year]: {
+            ...prevState.listTasks[year],
+            [month]: {
+              [day]:[
+                ...value
+              ],
+            },
+          },
+        }
+      }));
+      return;
+    }
+    if(this.state.listTasks[year][month] === undefined) {
+      // console.log(value);
+      this.setState(prevState => ({
+        listTasks: {
+          ...prevState.listTasks,
+          [year]: {
+            ...prevState.listTasks[year],
+            [month]: {
+              ...prevState.listTasks[year][month],
+              [day]:[
+                ...value
+              ],
+            },
+          },
+        }
+      }));
+      return;
+    }
+
+    if(!this.state.listTasks[year][month][day]) {
+      console.log('FF')
+      this.setState(prevState => ({
+        listTasks: {
+          ...prevState.listTasks,
+          [year]: {
+            ...prevState.listTasks[year],
+            [month]: {
+              ...prevState.listTasks[year][month],
+              [day]:[
+                // ...prevState.listTasks[day],
+                ...value
+              ],
+            },
+          },
+        }
+      }));
+      return;
+    }
+
     this.setState(prevState => ({
       listTasks: {
         ...prevState.listTasks,
@@ -121,11 +176,15 @@ export class App extends React.Component {
           ...prevState.listTasks[year],
           [month]: {
             ...prevState.listTasks[year][month],
-            [day]: value,
+            [day]: [
+              ...prevState.listTasks[year][month][day],
+              ...value,
+            ],
           },
         },
       },
     }));
+
   };
 
   render() {
